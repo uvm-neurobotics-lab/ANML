@@ -6,11 +6,30 @@ Continual lifelong learning requires an agent or model to learn many sequentiall
 
 ## How to Run 
 
+First, install [Anaconda](https://docs.continuum.io/anaconda/install/linux/) for Python 3 on your machine.
+
+Next, install PyTorch and Tensorboard
+
+```
+pip install torch
+pip install tensorboardX
+```
+
+Then clone the repository:
+
 ```
 git clone https://github.com/shawnbeaulieu/ANML.git
+```
 
+Meta-train your network(s). To modify the network architecture, see modelfactory.py in the model folder.
+
+```
 python mrcl_classification.py --rln 7 --meta_lr 0.001 --update_lr 0.1 --name mrcl_omniglot --steps 20000 --seed 9 --model_name "Neuromodulation_Model.net"
-...
+```
+
+Evaluate your trained model:
+
+```
 python evaluate_classification.py --rln 13  --model Neuromodulation_Model.net --name Omni_test_traj --runs 10
 
 ```
