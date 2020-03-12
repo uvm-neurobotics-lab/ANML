@@ -11,7 +11,7 @@ git clone https://github.com/shawnbeaulieu/ANML.git
 
 python mrcl_classification.py --rln 7 --meta_lr 0.001 --update_lr 0.1 --name mrcl_omniglot --steps 20000 --seed 9 --model_name "Neuromodulation_Model.net"
 ...
-python3 evaluate_classification.py --rln 13  --model Neuromodulation_Model.net --name Omni_test_traj --runs 10
+python evaluate_classification.py --rln 13  --model Neuromodulation_Model.net --name Omni_test_traj --runs 10
 
 ```
 
