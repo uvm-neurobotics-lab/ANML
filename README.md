@@ -27,10 +27,10 @@ Meta-train your network(s). To modify the network architecture, see modelfactory
 python mrcl_classification.py --rln 7 --meta_lr 0.001 --update_lr 0.1 --name mrcl_omniglot --steps 20000 --seed 9 --model_name "Neuromodulation_Model.net"
 ```
 
-Evaluate your trained model:
+Evaluate your trained model. RLN tag specifies which layers you want to fix during the meta-test training phase. For example, to have no layers fixed, run:
 
 ```
-python evaluate_classification.py --rln 13  --model Neuromodulation_Model.net --name Omni_test_traj --runs 10
+python evaluate_classification.py --rln 0  --model Neuromodulation_Model.net --name Omni_test_traj --runs 10
 
 ```
 
