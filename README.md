@@ -21,7 +21,7 @@ Then clone the repository:
 git clone https://github.com/shawnbeaulieu/ANML.git
 ```
 
-Meta-train your network(s). To modify the network architecture, see modelfactory.py in the model folder.
+Meta-train your network(s). To modify the network architecture, see modelfactory.py in the model folder. Depending on the architecture you choose, you may have to change how the data is loaded and/or preprocessed. See omniglot.py and task_sampler.py in the datasets folder.
 
 ```
 python mrcl_classification.py --rln 7 --meta_lr 0.001 --update_lr 0.1 --name mrcl_omniglot --steps 20000 --seed 9 --model_name "Neuromodulation_Model.net"
