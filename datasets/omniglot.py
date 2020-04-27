@@ -97,28 +97,23 @@ class Omniglot(data.Dataset):
         Returns:
             tuple: (image, target) where target is index of the target character class.
         """
-        # image_name, character_class = self._flat_character_images[index]
         image_name = self.data[index]
         character_class = self.targets[index]
         image_path = join(self.target_folder, self._characters[character_class], image_name)
+        
         if image_path not in self.images_cached:
 
             image = Image.open(image_path, mode='r').convert('RGB')#L
             image = image.resize((28,28), resample=Image.LANCZOS)
-            #image = np.array(image, dtype=np.float32)
-            #normalize = transforms.Normalize(mean=[0.92206*256], std=[0.08426*256*256])
+            image = np.array(image, dtype=np.float32)
             normalize = transforms.Normalize(mean=[0.92206*256, 0.92206*256, 0.92206*256], std=[0.08426*256*256, 0.08426*256*256, 0.08426*256*256]) # adjust means and std of input data 
             self.transform = transforms.Compose([transforms.ToTensor(), normalize])
-            #self.transform = transforms.ToTensor()
             if self.transform is not None:
                 image = self.transform(image)
 
             self.images_cached[image_path] = image
         else:
             image = self.images_cached[image_path]
-
-            if self.transform:
-                image = self.transform(image)
 
         if self.target_transform:
             character_class = self.target_transform(character_class)
