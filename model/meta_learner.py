@@ -1,5 +1,3 @@
-
-Learn more or give us feedback
 import logging
 import copy
 import numpy as np
