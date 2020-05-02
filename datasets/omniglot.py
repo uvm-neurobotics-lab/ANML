@@ -1,5 +1,3 @@
-
-Learn more or give us feedback
 from __future__ import print_function
 
 import os
