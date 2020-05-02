@@ -1,6 +1,3 @@
-
-Learn more or give us feedback
-
 import errno
 import hashlib
 import os
